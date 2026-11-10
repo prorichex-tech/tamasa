@@ -1,0 +1,69 @@
+
+/* Минимальные встроенные инструменты редактора. На публичном сайте полностью скрыты. */
+.tamasa-edit-trigger,.tamasa-image-trigger,.tamasa-card-tools button,.tamasa-add-card {
+  font:600 11px "DM Sans",sans-serif; border:1px solid rgba(212,119,75,.65);
+  color:#F3F1ED; background:#24282B; border-radius:3px; padding:8px 10px;
+  cursor:pointer; transition:background .2s,border-color .2s; z-index:8;
+}
+.tamasa-edit-trigger:hover,.tamasa-image-trigger:hover,.tamasa-card-tools button:hover,.tamasa-add-card:hover {
+  background:#D4774B; border-color:#D4774B;
+}
+.tamasa-editable { position:relative; }
+.tamasa-edit-trigger { display:inline-flex; margin-left:9px; vertical-align:middle; padding:3px 7px; font-size:10px; }
+.tamasa-image-editable { position:relative !important; }
+.tamasa-image-trigger { position:absolute; top:12px; right:12px; }
+.tamasa-card-tools { display:flex; flex-wrap:wrap; gap:7px; margin-top:12px; }
+.tamasa-card-tools button { font-size:10px; padding:7px 9px; }
+.tamasa-card-tools .danger { border-color:rgba(220,90,75,.6); color:#ffb6aa; }
+.tamasa-add-card { display:block; margin:24px auto 0; padding:13px 18px; }
+.tamasa-editor-toast {
+  position:fixed; z-index:99999; right:22px; bottom:22px; padding:12px 16px;
+  background:#292D30; color:#F3F1ED; border:1px solid rgba(212,119,75,.6);
+  border-radius:4px; font:600 12px "DM Sans",sans-serif; opacity:0; transform:translateY(8px);
+  pointer-events:none; transition:.2s;
+}
+.tamasa-editor-toast.is-visible { opacity:1; transform:translateY(0); }
+.tamasa-editor-toast.is-error { border-color:#d75b4b; }
+
+/* Страница входа выдержана в фирменной графитовой стилистике сайта. */
+.tamasa-login { min-height:100vh; background:#17191B; color:#F0EEE9; }
+.login-shell { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:36px 20px; position:relative; }
+.login-brand { margin-bottom:34px; }
+.login-card { width:min(100%,440px); padding:42px; background:#222629; border:1px solid rgba(255,255,255,.09); box-shadow:0 25px 90px rgba(0,0,0,.22); }
+.login-kicker,.login-foot { color:#969A99; font-size:9px; letter-spacing:.18em; }
+.login-card h1 { font-size:clamp(38px,7vw,54px); line-height:1.05; margin:20px 0 12px; }
+.login-card h1 em { color:#D4774B; font-style:normal; }
+.login-card>p { color:#A9ADA9; font-size:12px; line-height:1.8; margin:0 0 28px; }
+.login-card form { display:grid; gap:10px; }
+.login-card label { color:#C6C7C3; font-size:10px; font-weight:700; margin-top:8px; }
+.login-card input { width:100%; height:48px; padding:0 13px; border:1px solid rgba(255,255,255,.14); background:#171A1C; color:#F3F1ED; outline:none; border-radius:2px; font:13px "DM Sans",sans-serif; }
+.login-card input:focus { border-color:#D4774B; }
+.login-card .btn { width:100%; margin-top:13px; }
+.login-card .btn:disabled { opacity:.6; cursor:wait; }
+.login-error { min-height:16px; margin:0; color:#ff9b88; font-size:11px; }
+.login-back { display:inline-block; margin-top:26px; color:#969A99; font-size:10px; text-decoration:none; }
+.login-back:hover { color:#D4774B; }
+.login-foot { margin-top:32px; }
+@media(max-width:520px) { .login-card { padding:30px 23px; } }
+
+
+/* Image-only administration controls */
+[hidden] { display: none !important; }
+.tamasa-compare-upload {
+  top: 16px;
+  right: 16px;
+  z-index: 30;
+  min-height: 38px;
+  padding: 10px 14px;
+  letter-spacing: .02em;
+  background: rgba(23,25,27,.94);
+  border-color: rgba(212,119,75,.85);
+  box-shadow: 0 6px 22px rgba(0,0,0,.24);
+}
+.tamasa-image-editable { overflow: hidden; }
+.tamasa-card-tools { position: relative; z-index: 10; }
+.tamasa-card-tools .tamasa-image-trigger {
+  position: static;
+  min-height: 34px;
+}
+.compare-photo.has-custom-image .compare-placeholder { display:none !important; }

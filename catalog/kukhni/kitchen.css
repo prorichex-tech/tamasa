@@ -1,0 +1,583 @@
+
+/* =========================================
+   TAMASA MEBEL
+   KITCHEN CATALOG
+========================================= */
+
+.kitchen-catalog {
+    --kc-bg: #17191B;
+    --kc-paper: #222629;
+    --kc-ink: #F0EEE9;
+    --kc-muted: #A5A19A;
+    --kc-orange: #D4774B;
+    --kc-line: rgba(255,255,255,.13);
+
+    background: var(--kc-bg);
+    color: var(--kc-ink);
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+.kitchen-intro {
+    padding-top: 43px;
+    padding-bottom: 0;
+}
+
+.kitchen-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-size: 10px;
+    color: var(--kc-muted);
+    margin-bottom: 65px;
+}
+
+.kitchen-breadcrumb a {
+    color: inherit;
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.kitchen-breadcrumb a:hover {
+    color: var(--kc-orange);
+}
+
+.kitchen-intro-main {
+    display: grid;
+    grid-template-columns: 1.2fr .55fr;
+    align-items: end;
+    gap: 60px;
+}
+
+.kitchen-eyebrow {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .17em;
+    color: var(--kc-orange);
+}
+
+.kitchen-intro-main h1 {
+    font-family: var(--display, "Manrope", sans-serif);
+    font-size: clamp(58px, 7.2vw, 100px);
+    font-weight: 500;
+    line-height: .98;
+    letter-spacing: -.075em;
+    margin: 22px 0 0;
+}
+
+.kitchen-intro-main h1 em {
+    color: var(--kc-orange);
+    font-style: normal;
+}
+
+.kitchen-intro-main > p {
+    max-width: 350px;
+    font-size: 12px;
+    line-height: 1.9;
+    color: var(--kc-muted);
+    margin: 0 0 8px;
+}
+
+.kitchen-catalog-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--kc-line);
+    margin-top: 55px;
+    padding: 16px 0;
+    color: var(--kc-muted);
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: .16em;
+}
+
+
+/* =========================================
+   PRODUCT GRID
+========================================= */
+
+.kitchen-products {
+    padding-top: 18px;
+    padding-bottom: 100px;
+}
+
+.kitchen-products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 42px 20px;
+}
+
+.kitchen-product {
+    min-width: 0;
+    cursor: pointer;
+}
+
+.kitchen-product-image {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    aspect-ratio: 1.16 / 1;
+    overflow: hidden;
+    padding: 19px;
+    background-color: #d4c7b7;
+    isolation: isolate;
+    transition: transform .4s ease;
+}
+
+.kitchen-product-image::before {
+    content: "";
+    position: absolute;
+    inset: 11px;
+    border: 1px solid rgba(255, 255, 255, .55);
+    z-index: -1;
+}
+
+.kitchen-product-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        transparent 45%,
+        rgba(40, 34, 28, .12)
+    );
+    z-index: -1;
+}
+
+.kitchen-product:hover .kitchen-product-image {
+    transform: translateY(-4px);
+}
+
+
+/* Temporary visual backgrounds.
+   Replace with real photos later. */
+
+.photo-one {
+    background:
+        linear-gradient(145deg, #e0d5c8, #bca995);
+}
+
+.photo-two {
+    background:
+        linear-gradient(145deg, #c9b8a1, #8f7861);
+}
+
+.photo-three {
+    background:
+        linear-gradient(145deg, #e8e0d5, #c9bca9);
+}
+
+.photo-four {
+    background:
+        linear-gradient(145deg, #817b72, #403d38);
+}
+
+.photo-five {
+    background:
+        linear-gradient(145deg, #d6d0c6, #aaa397);
+}
+
+.photo-six {
+    background:
+        linear-gradient(145deg, #cfc2b1, #96816c);
+}
+
+.photo-seven {
+    background:
+        linear-gradient(145deg, #b8a38c, #77634f);
+}
+
+.photo-eight {
+    background:
+        linear-gradient(145deg, #ddd2c4, #b7a48e);
+}
+
+
+/* Placeholder branding */
+
+.product-image-mark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--display, "Manrope", sans-serif);
+    font-size: clamp(65px, 8vw, 110px);
+    font-weight: 500;
+    color: rgba(223, 117, 65, .82);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.product-image-caption {
+    position: relative;
+    z-index: 2;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    color: rgba(38, 37, 34, .7);
+}
+
+
+/* Product information */
+
+.kitchen-product-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    padding-top: 16px;
+}
+
+.kitchen-product-info h2 {
+    font-family: var(--display, "Manrope", sans-serif);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -.04em;
+    margin: 0;
+}
+
+.kitchen-product-info p {
+    color: var(--kc-muted);
+    font-size: 10px;
+    line-height: 1.7;
+    margin: 7px 0 0;
+    max-width: 260px;
+}
+
+.product-arrow {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--kc-line);
+    color: var(--kc-orange);
+    font-size: 17px;
+    transition:
+        background .25s ease,
+        color .25s ease,
+        border-color .25s ease;
+}
+
+.kitchen-product:hover .product-arrow {
+    background: var(--kc-orange);
+    border-color: var(--kc-orange);
+    color: white;
+}
+
+
+/* =========================================
+   CUSTOM ORDER BANNER
+========================================= */
+
+.kitchen-custom {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 35px;
+    overflow: hidden;
+    min-height: 370px;
+    padding: 65px 70px;
+    margin-bottom: 100px;
+    background: #292825;
+    color: #17191B;
+}
+
+.kitchen-custom-content {
+    position: relative;
+    z-index: 2;
+    max-width: 610px;
+}
+
+.kitchen-custom .kitchen-eyebrow {
+    color: #e18a5d;
+}
+
+.kitchen-custom h2 {
+    font-family: var(--display, "Manrope", sans-serif);
+    font-size: clamp(38px, 5vw, 65px);
+    line-height: 1.04;
+    font-weight: 500;
+    letter-spacing: -.065em;
+    margin: 22px 0 20px;
+}
+
+.kitchen-custom h2 em {
+    color: #D4774B;
+    font-style: normal;
+}
+
+.kitchen-custom-content > p {
+    max-width: 490px;
+    font-size: 12px;
+    line-height: 1.9;
+    color: #c0b9af;
+    margin: 0;
+}
+
+.kitchen-custom-button {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 35px;
+    min-width: 235px;
+    margin-top: 32px;
+    padding: 16px 19px;
+    background: #17191B;
+    color: #F0EEE9;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+    transition:
+        background .25s ease,
+        color .25s ease;
+}
+
+.kitchen-custom-button span {
+    color: var(--kc-orange);
+    font-size: 18px;
+}
+
+.kitchen-custom-button:hover {
+    background: var(--kc-orange);
+    color: white;
+}
+
+.kitchen-custom-button:hover span {
+    color: white;
+}
+
+
+/* Decorative branding */
+
+.kitchen-custom-decoration {
+    position: absolute;
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 260px;
+    height: 260px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, .12);
+    pointer-events: none;
+}
+
+.kitchen-custom-decoration::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgba(255, 255, 255, .08);
+}
+
+.kitchen-custom-decoration > span {
+    font-family: var(--display, "Manrope", sans-serif);
+    font-size: 120px;
+    line-height: 1;
+    color: rgba(223, 117, 65, .5);
+}
+
+.kitchen-custom-decoration small {
+    margin-top: 12px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    color: rgba(255, 255, 255, .5);
+}
+
+.kitchen-custom-decoration div {
+    margin-top: 8px;
+    font-size: 7px;
+    letter-spacing: .15em;
+    color: rgba(255, 255, 255, .3);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .kitchen-products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 35px 18px;
+    }
+
+    .kitchen-custom {
+        padding: 55px 45px;
+    }
+
+    .kitchen-custom-decoration {
+        right: -60px;
+        opacity: .6;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .kitchen-intro {
+        padding-top: 28px;
+    }
+
+    .kitchen-breadcrumb {
+        margin-bottom: 42px;
+        font-size: 9px;
+    }
+
+    .kitchen-intro-main {
+        grid-template-columns: 1fr;
+        gap: 19px;
+    }
+
+    .kitchen-intro-main h1 {
+        font-size: clamp(45px, 11vw, 65px);
+        margin-top: 17px;
+    }
+
+    .kitchen-intro-main > p {
+        max-width: 430px;
+        font-size: 11px;
+    }
+
+    .kitchen-catalog-meta {
+        margin-top: 35px;
+        font-size: 7px;
+        gap: 10px;
+    }
+
+    .kitchen-products {
+        padding-top: 10px;
+        padding-bottom: 65px;
+    }
+
+    .kitchen-products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 27px 12px;
+    }
+
+    .kitchen-product-image {
+        aspect-ratio: .88 / 1;
+        padding: 12px;
+    }
+
+    .kitchen-product-image::before {
+        inset: 7px;
+    }
+
+    .product-image-mark {
+        font-size: 60px;
+    }
+
+    .product-image-caption {
+        font-size: 6px;
+        letter-spacing: .1em;
+    }
+
+    .kitchen-product-info {
+        padding-top: 11px;
+        gap: 6px;
+    }
+
+    .kitchen-product-info h2 {
+        font-size: 13px;
+    }
+
+    .kitchen-product-info p {
+        font-size: 8px;
+        line-height: 1.55;
+        margin-top: 5px;
+    }
+
+    .product-arrow {
+        width: 26px;
+        height: 26px;
+        font-size: 13px;
+    }
+
+    .kitchen-custom {
+        min-height: auto;
+        padding: 42px 25px;
+        margin-bottom: 60px;
+    }
+
+    .kitchen-custom h2 {
+        font-size: 39px;
+    }
+
+    .kitchen-custom-content > p {
+        font-size: 10px;
+    }
+
+    .kitchen-custom-button {
+        width: 100%;
+        min-width: 0;
+        margin-top: 25px;
+    }
+
+    .kitchen-custom-decoration {
+        width: 150px;
+        height: 150px;
+        right: -85px;
+        top: 35px;
+        transform: none;
+        opacity: .35;
+    }
+
+    .kitchen-custom-decoration > span {
+        font-size: 70px;
+    }
+
+    .kitchen-custom-decoration small,
+    .kitchen-custom-decoration div {
+        display: none;
+    }
+
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+    .kitchen-products-grid {
+        gap: 24px 10px;
+    }
+
+    .kitchen-product-info h2 {
+        font-size: 12px;
+    }
+
+    .kitchen-custom {
+        padding: 35px 19px;
+    }
+
+    .kitchen-custom h2 {
+        font-size: 34px;
+    }
+
+}
+
+/* ГРАФИТОВАЯ ТЕМА КАТАЛОГА КУХОНЬ */
+.kitchen-product, .kitchen-product-info { color:var(--kc-ink); }
+.kitchen-product-image { background:#252A2D; }
+.kitchen-product-info { background:#222629; }
